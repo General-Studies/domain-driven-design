@@ -1,0 +1,74 @@
+/**
+* Order Domain
+*/
+entity CreditCard {
+    number String required maxlength(19)
+    month Integer required
+    year Integer required
+    flag CreditCardFlagType
+    created ZonedDateTime required
+    updated ZonedDateTime
+}
+
+enum CreditCardFlagType {
+    MASTERCARD, VISA
+}
+
+entity Ticket {
+    code String required maxlength(26)
+    active Boolean required
+    price BigDecimal required
+    halfEntry Boolean
+    created ZonedDateTime required
+    updated ZonedDateTime
+}
+
+entity Order {
+    frete BigDecimal required
+    status OrderStatusType
+    created ZonedDateTime required
+    updated ZonedDateTime
+}
+
+enum OrderStatusType {
+    OPENED,
+    PAID
+}
+
+/**
+* Client Domain
+*/
+entity Client {
+    name String required maxlength(100)
+    lastName String required maxlength(100)
+    phone String maxlength(30)
+    mobile String maxlength(30)
+    cpf String maxlength(20) required
+    email String maxlength(20) required unique
+    created ZonedDateTime required
+    updated ZonedDateTime
+}
+
+entity Address {
+    street String required maxlength(100)
+    number Integer 
+    complement String maxlength(100)
+    state String maxlength(10) required
+    city String maxlength(20) required
+    neighborhood String maxlength(20) required
+    postalCode String maxlength(15) required
+}
+
+/**
+* Relationships
+*/
+relationship ManyToOne {
+    Order{creditCard} to CreditCard
+    Order{client} to Client
+
+    Client{address} to Address
+}
+
+relationship ManyToMany {
+    Order{ticket} to Ticket{order}
+}
