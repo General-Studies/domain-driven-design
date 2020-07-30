@@ -7,4 +7,4 @@
 ### Aggregate
 
 
-![Eureka](https://github.com/General-Studies/domain-driven-design/jm-87-online-ticket-sale/blob/master/diagram/website-jdl.png)
+![Eureka](https://github.com/General-Studies/domain-driven-design/jm-87-online-ticket-sale/der.png)
