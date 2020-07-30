@@ -62,11 +62,13 @@ entity Address {
 /**
 * Relationships
 */
+relationship OneToOne {
+     Client{address} to Address
+}
+
 relationship ManyToOne {
     Order{creditCard} to CreditCard
     Order{client} to Client
-
-    Client{address} to Address
 }
 
 relationship ManyToMany {
