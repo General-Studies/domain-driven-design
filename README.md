@@ -1,2 +1,2 @@
-# domain-driven-design
-domain-driven-design
+# Domain-Driven Design
+Projetos para estudos do DDD
