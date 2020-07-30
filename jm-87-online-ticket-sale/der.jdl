@@ -5,12 +5,12 @@ entity CreditCard {
     number String required maxlength(19)
     month Integer required
     year Integer required
-    flag CreditCardFlagType
+    flag CreditCardOperatorType
     created ZonedDateTime required
     updated ZonedDateTime
 }
 
-enum CreditCardFlagType {
+enum CreditCardOperatorType {
     MASTERCARD, VISA
 }
 
